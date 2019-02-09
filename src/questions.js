@@ -19,6 +19,5 @@ export const questions = [
         "question": "Which animal can run the fastest?",
         "answer": "A cheetah."
     }
-
 ]
 
