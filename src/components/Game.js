@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Team from './Team';
 import Card from './Card';
 import Button from './Button';
-import { questions } from '../questions';
-
+import { category1, category_name1 } from '../categories/category1';
+import { category2, category_name2 } from '../categories/category2';
+import { category3, category_name3 } from '../categories/category3';
 
 export class Game extends Component {
     constructor(props) {
@@ -18,16 +19,23 @@ export class Game extends Component {
         }
         this.handleGameButtonClick = this.handleGameButtonClick.bind(this)
     }
-  
+
+  questionsGrid = (category_name) => {
+    return (category_name.map((q, index) => 
+        <Card key={index} 
+              question={q.question} 
+              id={index} 
+              answer={q.answer} 
+              onTurnComplete={this.completeTurn}/>)
+    );
+  }
   get gameGrid() {
-      return (this.state.isGameRunning ? questions.map((q, index) => 
-                                            <Card 
-                                                key={index} 
-                                                question={q.question} 
-                                                id={index} 
-                                                answer={q.answer} 
-                                                onTurnComplete={this.completeTurn}/>)
-                                        : <p>Press Start to play the game</p>)
+      return (this.state.isGameRunning ? 
+                <div className="categories-grid">
+                    <div className="category-single">{category_name1}{this.questionsGrid(category2)}</div>
+                    <div className="category-single">{category_name2}{this.questionsGrid(category1)}</div>
+                    <div className="category-single">{category_name3}{this.questionsGrid(category3)}</div>
+                </div>  : <p>Press Start to play the game</p>)
   }
   get gameButtonLabel() {
       return (this.state.isGameRunning ? "Stop" : "Start");
