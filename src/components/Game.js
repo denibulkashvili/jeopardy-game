@@ -75,10 +75,12 @@ export class Game extends Component {
         <h1>Jeopardy Game</h1>
         <Team 
             teamName={this.state.firstTeamName} 
-            teamScore={this.state.firstTeamScore} />
+            teamScore={this.state.firstTeamScore} 
+            isTurn={this.state.firstTeamTurn}/>
         <Team 
             teamName={this.state.secondTeamName} 
-            teamScore={this.state.secondTeamScore} />
+            teamScore={this.state.secondTeamScore}
+            isTurn={!this.state.firstTeamTurn} />
 
         <div className="grid">
             {this.gameGrid}

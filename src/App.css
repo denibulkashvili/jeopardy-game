@@ -23,6 +23,10 @@ h1 {
 .team-2 {
   grid-area: team-2;
 }
+.isTurn {
+  background: cyan;
+  
+}
 .grid {
   grid-area: grid;
 }
