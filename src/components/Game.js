@@ -17,7 +17,8 @@ export class Game extends Component {
             secondTeamScore: 0,
             firstTeamTurn: true
         }
-        this.handleGameButtonClick = this.handleGameButtonClick.bind(this)
+        this.handleGameButtonClick = this.handleGameButtonClick.bind(this);
+        this.changeTeamTurn = this.changeTeamTurn.bind(this);
     }
 
   questionsGrid = (category_name) => {
@@ -81,12 +82,16 @@ export class Game extends Component {
             teamName={this.state.secondTeamName} 
             teamScore={this.state.secondTeamScore}
             isTurn={!this.state.firstTeamTurn} />
-
+        <div className="buttons-main">
+            <button className="btn" onClick={this.changeTeamTurn}>Change Turns</button>
+            <Button className="btn game-btn" buttonLabel={this.gameButtonLabel} onClick={this.handleGameButtonClick}/>
+        </div>  
+        
         <div className="grid">
             {this.gameGrid}
         </div>
 
-        <Button className="btn game-btn" buttonLabel={this.gameButtonLabel} onClick={this.handleGameButtonClick}/>
+        
       </div>
     )
   }

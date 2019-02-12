@@ -1,3 +1,6 @@
+body {
+  font-size: 15px;
+}
 .App {
   text-align: center;
 }
@@ -25,7 +28,7 @@ h1 {
 }
 .isTurn {
   background: cyan;
-  
+
 }
 .grid {
   grid-area: grid;
@@ -48,4 +51,5 @@ h1 {
   background: purple;
   color: white;
   margin-bottom: 5px;
+  max-width: 100px;
 }
